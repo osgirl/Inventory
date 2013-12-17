@@ -1,0 +1,280 @@
+#
+# Translators:
+# codepress <info@codepress.nl>, 2013
+msgid ""
+msgstr ""
+"Project-Id-Version: Admin Columns - Pro Addon\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2013-08-14 17:23+0100\n"
+"PO-Revision-Date: 2013-11-14 16:53+0100\n"
+"Last-Translator: Codepress <info@codepress.nl>\n"
+"Language-Team: Dutch (Netherlands) (http://www.transifex.com/projects/p/"
+"admin-columns-pro-addon/language/nl_NL/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: nl_NL\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 1.5.7\n"
+"X-Poedit-Basepath: .\n"
+"X-Poedit-KeywordsList: __;_e\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPath-1: ..\n"
+
+#: ../cac-addon-pro.php:91
+msgid ""
+"Sortorder has been <strong>deactivated</strong>. You are using the Pro add-"
+"on, which contains the same functionality."
+msgstr ""
+"Sortorder is <strong>gedeactiveerd</strong>. U gebruikt de Pro-addon, deze "
+"bevat dezelfde functionaliteit."
+
+#: ../cac-addon-pro.php:117
+msgid "Pro add-on"
+msgstr "Pro add-on"
+
+#: ../cac-addon-pro.php:133
+#, php-format
+msgid ""
+"The Pro add-on is enabled but not effective. It requires %s in order to work."
+msgstr ""
+"De Pro add-on is geactiveerd maar werkt niet. Het verreist %s om te werken."
+
+#: ../classes/update.php:159
+msgid "Could not connect to API. Try again at a later time please."
+msgstr "Kan geen verbinding maken met API. Probeer later opnieuw."
+
+#: ../classes/update.php:167
+msgid "Wrong response from API."
+msgstr "Verkeerde reactie van API."
+
+#: ../classes/update.php:209
+msgid "licence is empty."
+msgstr "licentie is leeg."
+
+#: ../classes/update.php:227
+msgid "error"
+msgstr "error"
+
+#: ../classes/update.php:228
+#, php-format
+msgid "Login into your account at %s to see your current licence activations."
+msgstr "Log in je account op %s om je huidige licentie activaties te zien."
+
+#: ../classes/update.php:232
+msgid "activation failed"
+msgstr "activatie mislukt"
+
+#: ../classes/update.php:239
+msgid "licence is <strong>activated</strong>."
+msgstr "licentie is <strong>geactiveerd</strong>."
+
+#: ../classes/update.php:260
+msgid "No licence key found."
+msgstr "Geen licentie gevonden."
+
+#: ../classes/update.php:265
+msgid "Licence key is not active."
+msgstr "Licentie is niet actief."
+
+#: ../classes/update.php:288
+msgid "licence is <strong>deactivated</strong>."
+msgstr "licenctie is <strong>gedactiveerd</strong>."
+
+#: ../classes/update.php:320
+msgid "Add-ons updates"
+msgstr "Add-ons updates"
+
+#: ../classes/update.php:321 ../classes/update.php:367
+msgid "Enter your licence to receive automatic updates."
+msgstr "Vul je licentie in om automatische updates te ontvangen."
+
+#: ../classes/update.php:357
+msgid "Automatic updates are enabled."
+msgstr "Automatische updates zijn geactiveerd."
+
+#: ../classes/update.php:358
+msgid "Deactivate licence"
+msgstr "Deactiveer licentie"
+
+#: ../classes/update.php:364
+msgid "Fill in your licence code"
+msgstr "Vul je licentie code in"
+
+#: ../classes/update.php:365
+msgid "Update licence"
+msgstr "Update licentie"
+
+#: ../classes/export-import/classes/export_import.php:43
+msgid "Export Settings"
+msgstr "Exporteer Instellingen"
+
+#: ../classes/export-import/classes/export_import.php:45
+msgid ""
+"Pick the types for export from the left column. Click export to download "
+"your column settings."
+msgstr ""
+"Kies de typen om te exporteren uit de linker kolom. Klik exporteer om ze te "
+"downloaden."
+
+#: ../classes/export-import/classes/export_import.php:46
+#: ../classes/export-import/classes/export_import.php:49
+#: ../classes/export-import/classes/export_import.php:63
+#: ../classes/export-import/classes/export_import.php:66
+msgid "Instructions"
+msgstr "Instructies"
+
+#: ../classes/export-import/classes/export_import.php:48
+msgid "Export Columns Types"
+msgstr "Exporteer Kolom types"
+
+#: ../classes/export-import/classes/export_import.php:51
+msgid "Select one or more Column Types from the left section by clicking them."
+msgstr ""
+"Selecteer een of meer kolom typen uit de linker sectie door ze aan te "
+"klikken."
+
+#: ../classes/export-import/classes/export_import.php:52
+msgid "Click export."
+msgstr "Klik exporteer."
+
+#: ../classes/export-import/classes/export_import.php:53
+msgid "Save the export file when prompted."
+msgstr "Bewaar het exporteer bestand wanner er om wordt gevraagd."
+
+#: ../classes/export-import/classes/export_import.php:54
+msgid "Upload and import your settings file through Import Settings."
+msgstr ""
+"Upload en importeer je instellingen door middel van Importeer Instellingen."
+
+#: ../classes/export-import/classes/export_import.php:60
+msgid "Import Settings"
+msgstr "Importeer Instellingen"
+
+#: ../classes/export-import/classes/export_import.php:62
+msgid "Copy and paste your import settings here."
+msgstr "Kopieer en plak je importeer instellingen hier."
+
+#: ../classes/export-import/classes/export_import.php:65
+msgid "Import Columns Types"
+msgstr "Importeer Kolom Typen"
+
+#: ../classes/export-import/classes/export_import.php:68
+msgid "Choose a Admin Columns Export file to upload."
+msgstr "Kies een Admin Column Exporteer bestand om te uploaden."
+
+#: ../classes/export-import/classes/export_import.php:69
+msgid "Click upload file and import."
+msgstr "Klik upload bestand en importeer."
+
+#: ../classes/export-import/classes/export_import.php:70
+msgid "That's it! You imported settings are now active."
+msgstr "Je bent klaar! Je geimporteerde instellingen zijn nu actief."
+
+#: ../classes/export-import/classes/export_import.php:94
+msgid "General"
+msgstr "Algemene"
+
+#: ../classes/export-import/classes/export_import.php:95
+msgid "Posts"
+msgstr "Posts"
+
+#: ../classes/export-import/classes/export_import.php:106
+msgid "select all"
+msgstr "selecteer alles"
+
+#: ../classes/export-import/classes/export_import.php:107
+msgid "Export"
+msgstr "Exporteer"
+
+#: ../classes/export-import/classes/export_import.php:111
+msgid "No stored column settings are found."
+msgstr "Geen opgeslagen instellingen zijn gevonden."
+
+#: ../classes/export-import/classes/export_import.php:129
+msgid "Upload file and import"
+msgstr "Upload bestand en importeer"
+
+#: ../classes/export-import/classes/export_import.php:218
+msgid "Export field is empty. Please select your types from the left column."
+msgstr "Expoort velden zijn leeg. Selecteer een type uit de linker kolom."
+
+#: ../classes/export-import/classes/export_import.php:253
+#: ../classes/export-import/classes/export_import.php:255
+msgid "Sorry, there has been an error."
+msgstr "Sorry, er is een fout opgetreden."
+
+#: ../classes/export-import/classes/export_import.php:255
+#, php-format
+msgid ""
+"The export file could not be found at <code>%s</code>. It is likely that "
+"this was caused by a permissions problem."
+msgstr ""
+"Het exporteer bestand kon niet worden gevonden  bij <code>%s</code>. "
+"Waarschijnlijk wordt dit veroorzaakt door een rechten probleem."
+
+#: ../classes/export-import/classes/export_import.php:273
+msgid "Import failed. File does not contain Admin Column settings."
+msgstr "Importeren mislukt. Bestand bevat geen Admin Column instellingen."
+
+#: ../classes/export-import/classes/export_import.php:283
+#, php-format
+msgid "Screen %s does not exist."
+msgstr "Scherm %s bestaan niet."
+
+#: ../classes/filtering/filtering.php:56
+msgid "Filtering add-on"
+msgstr "Filtering add-on"
+
+#: ../classes/filtering/filtering.php:110
+msgid "Enable filtering?"
+msgstr "Enable filtering?"
+
+#: ../classes/filtering/filtering.php:110
+msgid "This will make the column support filering."
+msgstr "Dit zal de kolom ondersteuning voor filtering geven."
+
+#: ../classes/filtering/filtering.php:114 ../classes/sortable/sortable.php:128
+msgid "Yes"
+msgstr "Ja"
+
+#: ../classes/filtering/filtering.php:118 ../classes/sortable/sortable.php:132
+msgid "No"
+msgstr "Nee"
+
+#: ../classes/filtering/filtering.php:137
+msgid "filter"
+msgstr "filter"
+
+#: ../classes/filtering/classes/model.php:114
+msgid "All"
+msgstr "Alles"
+
+#: ../classes/filtering/classes/model.php:116
+msgid "Empty"
+msgstr "Leeg"
+
+#: ../classes/filtering/classes/model.php:117
+msgid "Not empty"
+msgstr "Niet leeg"
+
+#: ../classes/sortable/sortable.php:65
+msgid "Sortable add-on"
+msgstr "Sortable add-on"
+
+#: ../classes/sortable/sortable.php:124
+msgid "Enable sorting?"
+msgstr "Enable sorting?"
+
+#: ../classes/sortable/sortable.php:124
+msgid "This will make the column support sorting."
+msgstr "Dit zal de kolom ondersteuning voor sorting geven."
+
+#: ../classes/sortable/sortable.php:151
+msgid "sort"
+msgstr "sorteer"
+
+#: ../classes/sortable/classes/model.php:53
+msgid "Reset sorting"
+msgstr "Herstel sorting"

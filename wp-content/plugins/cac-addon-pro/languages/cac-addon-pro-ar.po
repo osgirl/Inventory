@@ -1,0 +1,277 @@
+#
+# Translators:
+# TheHassan, 2013
+msgid ""
+msgstr ""
+"Project-Id-Version: Admin Columns - Pro Addon\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2013-08-14 17:23+0100\n"
+"PO-Revision-Date: 2013-11-14 16:53+0100\n"
+"Last-Translator: Codepress <info@codepress.nl>\n"
+"Language-Team: Arabic (http://www.transifex.com/projects/p/admin-columns-pro-"
+"addon/language/ar/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: ar\n"
+"Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
+"&& n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5;\n"
+"X-Generator: Poedit 1.5.7\n"
+"X-Poedit-Basepath: .\n"
+"X-Poedit-KeywordsList: __;_e\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPath-1: ..\n"
+
+#: ../cac-addon-pro.php:91
+msgid ""
+"Sortorder has been <strong>deactivated</strong>. You are using the Pro add-"
+"on, which contains the same functionality."
+msgstr ""
+"إضافة Sortorder تم <strong>تعطيلها</strong>. انت تستخدم المحلق الإحترافي، "
+"وهو يحتوي على نفس الوظائف."
+
+#: ../cac-addon-pro.php:117
+msgid "Pro add-on"
+msgstr "الملحق الإحترافي"
+
+#: ../cac-addon-pro.php:133
+#, php-format
+msgid ""
+"The Pro add-on is enabled but not effective. It requires %s in order to work."
+msgstr "الملحق الإضافي مفعل لكن ليس له أثر. إنه يتطلب %s لكي يعمل."
+
+#: ../classes/update.php:159
+msgid "Could not connect to API. Try again at a later time please."
+msgstr "تعذر الاتصال بواجهة برمجة التطبيق. الرجاء المحاولة مرة أخرى بعد مدة."
+
+#: ../classes/update.php:167
+msgid "Wrong response from API."
+msgstr "رد خاطيء من واجهة برمجة التطبيق."
+
+#: ../classes/update.php:209
+msgid "licence is empty."
+msgstr "الرخصة خالية."
+
+#: ../classes/update.php:227
+msgid "error"
+msgstr "خطأ"
+
+#: ../classes/update.php:228
+#, php-format
+msgid "Login into your account at %s to see your current licence activations."
+msgstr "سجل الدخول على حسابك في %s لترى تفعيلات رخصتك الحالية."
+
+#: ../classes/update.php:232
+msgid "activation failed"
+msgstr "فشل التفعيل"
+
+#: ../classes/update.php:239
+msgid "licence is <strong>activated</strong>."
+msgstr "الرخصة <strong>مفعلة</strong>."
+
+#: ../classes/update.php:260
+msgid "No licence key found."
+msgstr "لم يتم العثور على مفتاح رخصة."
+
+#: ../classes/update.php:265
+msgid "Licence key is not active."
+msgstr "مفتاح الرخصة غير فعال."
+
+#: ../classes/update.php:288
+msgid "licence is <strong>deactivated</strong>."
+msgstr "الرخصة <strong>معطلة</strong>."
+
+#: ../classes/update.php:320
+msgid "Add-ons updates"
+msgstr "تحديثات الملحقات"
+
+#: ../classes/update.php:321 ../classes/update.php:367
+msgid "Enter your licence to receive automatic updates."
+msgstr "قم بإدخال رخصتك لتحصل على تحديثات آلية."
+
+#: ../classes/update.php:357
+msgid "Automatic updates are enabled."
+msgstr "التحديثات الآلية مفعلة."
+
+#: ../classes/update.php:358
+msgid "Deactivate licence"
+msgstr "تعطيل الرخصة"
+
+#: ../classes/update.php:364
+msgid "Fill in your licence code"
+msgstr "أدخل مفتاح رخصتك"
+
+#: ../classes/update.php:365
+msgid "Update licence"
+msgstr "تحديث الرخصة"
+
+#: ../classes/export-import/classes/export_import.php:43
+msgid "Export Settings"
+msgstr "تصدير الإعدادات"
+
+#: ../classes/export-import/classes/export_import.php:45
+msgid ""
+"Pick the types for export from the left column. Click export to download "
+"your column settings."
+msgstr ""
+"اختيار أنواع للتصدير من العمود الأيمن. انقر فوق تصدير لتنزيل إعدادات العمود."
+
+#: ../classes/export-import/classes/export_import.php:46
+#: ../classes/export-import/classes/export_import.php:49
+#: ../classes/export-import/classes/export_import.php:63
+#: ../classes/export-import/classes/export_import.php:66
+msgid "Instructions"
+msgstr "تعليمات"
+
+#: ../classes/export-import/classes/export_import.php:48
+msgid "Export Columns Types"
+msgstr "تصدير أنواع الأعمدة"
+
+#: ../classes/export-import/classes/export_import.php:51
+msgid "Select one or more Column Types from the left section by clicking them."
+msgstr ""
+"اختيار واحد أو أكثر من أنواع الأعمدة من القسم الأيمن من خلال النقر عليها."
+
+#: ../classes/export-import/classes/export_import.php:52
+msgid "Click export."
+msgstr "اظغط على تصدير."
+
+#: ../classes/export-import/classes/export_import.php:53
+msgid "Save the export file when prompted."
+msgstr "حفظ ملف التصدير عند المطالبة."
+
+#: ../classes/export-import/classes/export_import.php:54
+msgid "Upload and import your settings file through Import Settings."
+msgstr "تحميل واستيراد ملف الإعدادات الخاصة بك من خلال إعدادات الاستيراد."
+
+#: ../classes/export-import/classes/export_import.php:60
+msgid "Import Settings"
+msgstr "استيراد الإعدادات"
+
+#: ../classes/export-import/classes/export_import.php:62
+msgid "Copy and paste your import settings here."
+msgstr "قم بنسخ ولصق إعدادات الاستيراد الخاصة بك هنا."
+
+#: ../classes/export-import/classes/export_import.php:65
+msgid "Import Columns Types"
+msgstr "استيراد أنواع الأعمدة"
+
+#: ../classes/export-import/classes/export_import.php:68
+msgid "Choose a Admin Columns Export file to upload."
+msgstr "قم باختيار ملف تصدير Admin Columns للرفع."
+
+#: ../classes/export-import/classes/export_import.php:69
+msgid "Click upload file and import."
+msgstr "اضغط على رفع الملف والاستيراد"
+
+#: ../classes/export-import/classes/export_import.php:70
+msgid "That's it! You imported settings are now active."
+msgstr "هذا كل شيء! إعداداتك المستوردة مفعلة الآن."
+
+#: ../classes/export-import/classes/export_import.php:94
+msgid "General"
+msgstr "عام"
+
+#: ../classes/export-import/classes/export_import.php:95
+msgid "Posts"
+msgstr "تدوينات"
+
+#: ../classes/export-import/classes/export_import.php:106
+msgid "select all"
+msgstr "اختيار الكل"
+
+#: ../classes/export-import/classes/export_import.php:107
+msgid "Export"
+msgstr "تصدير"
+
+#: ../classes/export-import/classes/export_import.php:111
+msgid "No stored column settings are found."
+msgstr "لم يتم العثور على إعدادت أعمدة محفوظة."
+
+#: ../classes/export-import/classes/export_import.php:129
+msgid "Upload file and import"
+msgstr "رفع الملف والاستيراد"
+
+#: ../classes/export-import/classes/export_import.php:218
+msgid "Export field is empty. Please select your types from the left column."
+msgstr "حقل التصدير خالي. الرجاء اختيار أنواعك من العمود الأيمن."
+
+#: ../classes/export-import/classes/export_import.php:253
+#: ../classes/export-import/classes/export_import.php:255
+msgid "Sorry, there has been an error."
+msgstr "عفوا، حدث خطأ ما."
+
+#: ../classes/export-import/classes/export_import.php:255
+#, php-format
+msgid ""
+"The export file could not be found at <code>%s</code>. It is likely that "
+"this was caused by a permissions problem."
+msgstr ""
+"ملف التصدير لم يتم العثور عليه في <code>%s</code>. غالبا ما يكون السبب هو "
+"خطأ قي الصلاحيات."
+
+#: ../classes/export-import/classes/export_import.php:273
+msgid "Import failed. File does not contain Admin Column settings."
+msgstr "فشل الاستيراد. الملف لا يحتوي على إعدادات Admin Column."
+
+#: ../classes/export-import/classes/export_import.php:283
+#, php-format
+msgid "Screen %s does not exist."
+msgstr "الشاشة %s غير موجودة."
+
+#: ../classes/filtering/filtering.php:56
+msgid "Filtering add-on"
+msgstr "ملحق التصفية"
+
+#: ../classes/filtering/filtering.php:110
+msgid "Enable filtering?"
+msgstr "تفعيل التصفية؟"
+
+#: ../classes/filtering/filtering.php:110
+msgid "This will make the column support filering."
+msgstr "هذا سوف يجعل العمود يدعم التصفية."
+
+#: ../classes/filtering/filtering.php:114 ../classes/sortable/sortable.php:128
+msgid "Yes"
+msgstr "نعم"
+
+#: ../classes/filtering/filtering.php:118 ../classes/sortable/sortable.php:132
+msgid "No"
+msgstr "لا"
+
+#: ../classes/filtering/filtering.php:137
+msgid "filter"
+msgstr "تصفية"
+
+#: ../classes/filtering/classes/model.php:114
+msgid "All"
+msgstr "الكل"
+
+#: ../classes/filtering/classes/model.php:116
+msgid "Empty"
+msgstr "خالي"
+
+#: ../classes/filtering/classes/model.php:117
+msgid "Not empty"
+msgstr "غير خالي"
+
+#: ../classes/sortable/sortable.php:65
+msgid "Sortable add-on"
+msgstr "ملحق الترتيب"
+
+#: ../classes/sortable/sortable.php:124
+msgid "Enable sorting?"
+msgstr "تفعيل الترتيب؟"
+
+#: ../classes/sortable/sortable.php:124
+msgid "This will make the column support sorting."
+msgstr "هذا سوف يجعل العمود يدعم الترتيب."
+
+#: ../classes/sortable/sortable.php:151
+msgid "sort"
+msgstr "ترتيب"
+
+#: ../classes/sortable/classes/model.php:53
+msgid "Reset sorting"
+msgstr "إستعادة الترتيب الإفتراضي"

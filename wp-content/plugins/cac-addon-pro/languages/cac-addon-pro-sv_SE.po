@@ -1,0 +1,284 @@
+#
+# Translators:
+# fanderzzon <fidde.andersson@telia.com>, 2013
+msgid ""
+msgstr ""
+"Project-Id-Version: Admin Columns - Pro Addon\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2013-08-14 17:23+0100\n"
+"PO-Revision-Date: 2013-11-14 16:53+0100\n"
+"Last-Translator: Codepress <info@codepress.nl>\n"
+"Language-Team: Swedish (Sweden) (http://www.transifex.com/projects/p/admin-"
+"columns-pro-addon/language/sv_SE/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: sv_SE\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 1.5.7\n"
+"X-Poedit-Basepath: .\n"
+"X-Poedit-KeywordsList: __;_e\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPath-1: ..\n"
+
+#: ../cac-addon-pro.php:91
+msgid ""
+"Sortorder has been <strong>deactivated</strong>. You are using the Pro add-"
+"on, which contains the same functionality."
+msgstr ""
+"Sorteringsorder har blivit <strong>avaktiverad</strong>. Du använder Pro "
+"tillägget, vilket innehåller samma funktionalitet."
+
+#: ../cac-addon-pro.php:117
+msgid "Pro add-on"
+msgstr "Pro tillägg"
+
+#: ../cac-addon-pro.php:133
+#, php-format
+msgid ""
+"The Pro add-on is enabled but not effective. It requires %s in order to work."
+msgstr ""
+"Pro tillägget är aktiverat men inte effektivt. Den behöver %s för att kunna "
+"fungera."
+
+#: ../classes/update.php:159
+msgid "Could not connect to API. Try again at a later time please."
+msgstr "Kunde inte ansluta till API. Vänligen försök senare."
+
+#: ../classes/update.php:167
+msgid "Wrong response from API."
+msgstr "Felaktig respons från API."
+
+#: ../classes/update.php:209
+msgid "licence is empty."
+msgstr "licensen är tom."
+
+#: ../classes/update.php:227
+msgid "error"
+msgstr "fel"
+
+#: ../classes/update.php:228
+#, php-format
+msgid "Login into your account at %s to see your current licence activations."
+msgstr ""
+"Logga in på ditt konto på %s för att se dina nuvarande aktiverade licenser."
+
+#: ../classes/update.php:232
+msgid "activation failed"
+msgstr "aktivering misslyckades"
+
+#: ../classes/update.php:239
+msgid "licence is <strong>activated</strong>."
+msgstr "licensen är <strong>aktiverad</strong>."
+
+#: ../classes/update.php:260
+msgid "No licence key found."
+msgstr "Ingen licensnyckel hittades."
+
+#: ../classes/update.php:265
+msgid "Licence key is not active."
+msgstr "Licensnyckel är inte aktiv."
+
+#: ../classes/update.php:288
+msgid "licence is <strong>deactivated</strong>."
+msgstr "licensen är <strong>avaktiverad</strong>."
+
+#: ../classes/update.php:320
+msgid "Add-ons updates"
+msgstr "Tillägg uppdateringar"
+
+#: ../classes/update.php:321 ../classes/update.php:367
+msgid "Enter your licence to receive automatic updates."
+msgstr "Ange din licens för att få automatiska uppdateringar."
+
+#: ../classes/update.php:357
+msgid "Automatic updates are enabled."
+msgstr "Automatiska uppdateringar är aktiverade."
+
+#: ../classes/update.php:358
+msgid "Deactivate licence"
+msgstr "Inaktivera licens"
+
+#: ../classes/update.php:364
+msgid "Fill in your licence code"
+msgstr "Fyll i din licensnyckel"
+
+#: ../classes/update.php:365
+msgid "Update licence"
+msgstr "Uppdatera licensen"
+
+#: ../classes/export-import/classes/export_import.php:43
+msgid "Export Settings"
+msgstr "Exportera inställningar"
+
+#: ../classes/export-import/classes/export_import.php:45
+msgid ""
+"Pick the types for export from the left column. Click export to download "
+"your column settings."
+msgstr ""
+"Välj de typer för export från den vänstra kolumnen. Klicka på exportera för "
+"att hämta dina kolumninställningar."
+
+#: ../classes/export-import/classes/export_import.php:46
+#: ../classes/export-import/classes/export_import.php:49
+#: ../classes/export-import/classes/export_import.php:63
+#: ../classes/export-import/classes/export_import.php:66
+msgid "Instructions"
+msgstr "Instruktioner"
+
+#: ../classes/export-import/classes/export_import.php:48
+msgid "Export Columns Types"
+msgstr "Exportera Kolumn Typer"
+
+#: ../classes/export-import/classes/export_import.php:51
+msgid "Select one or more Column Types from the left section by clicking them."
+msgstr ""
+"Markera en eller flera kolumn typer från den vänstra sektionen genom att "
+"klicka på dem."
+
+#: ../classes/export-import/classes/export_import.php:52
+msgid "Click export."
+msgstr "Klicka på export."
+
+#: ../classes/export-import/classes/export_import.php:53
+msgid "Save the export file when prompted."
+msgstr "Spara export filen när du tillfrågas."
+
+#: ../classes/export-import/classes/export_import.php:54
+msgid "Upload and import your settings file through Import Settings."
+msgstr ""
+"Ladda upp och importera din inställningsfil genom importera inställningar."
+
+#: ../classes/export-import/classes/export_import.php:60
+msgid "Import Settings"
+msgstr "Importera inställningar"
+
+#: ../classes/export-import/classes/export_import.php:62
+msgid "Copy and paste your import settings here."
+msgstr "Kopiera och klistra in dina importerade inställningar här."
+
+#: ../classes/export-import/classes/export_import.php:65
+msgid "Import Columns Types"
+msgstr "Importera Kolumn Typer"
+
+#: ../classes/export-import/classes/export_import.php:68
+msgid "Choose a Admin Columns Export file to upload."
+msgstr "Välj en Admin Columns export fil för att ladda upp."
+
+#: ../classes/export-import/classes/export_import.php:69
+msgid "Click upload file and import."
+msgstr "Klicka på ladda upp fil och importera."
+
+#: ../classes/export-import/classes/export_import.php:70
+msgid "That's it! You imported settings are now active."
+msgstr "Det är allt! Du har importerat inställningarna som nu är aktivt."
+
+#: ../classes/export-import/classes/export_import.php:94
+msgid "General"
+msgstr "Allmänt"
+
+#: ../classes/export-import/classes/export_import.php:95
+msgid "Posts"
+msgstr "Inlägg"
+
+#: ../classes/export-import/classes/export_import.php:106
+msgid "select all"
+msgstr "välj alla"
+
+#: ../classes/export-import/classes/export_import.php:107
+msgid "Export"
+msgstr "Exportera"
+
+#: ../classes/export-import/classes/export_import.php:111
+msgid "No stored column settings are found."
+msgstr "Inga sparade kolumninställningar hittades."
+
+#: ../classes/export-import/classes/export_import.php:129
+msgid "Upload file and import"
+msgstr "Ladda upp fil och importera"
+
+#: ../classes/export-import/classes/export_import.php:218
+msgid "Export field is empty. Please select your types from the left column."
+msgstr ""
+"Exportfältet är tomt. Vänligen markera dina typer från den vänstra kolumnen."
+
+#: ../classes/export-import/classes/export_import.php:253
+#: ../classes/export-import/classes/export_import.php:255
+msgid "Sorry, there has been an error."
+msgstr "Tyvärr, det har uppstått ett fel."
+
+#: ../classes/export-import/classes/export_import.php:255
+#, php-format
+msgid ""
+"The export file could not be found at <code>%s</code>. It is likely that "
+"this was caused by a permissions problem."
+msgstr ""
+"Exportfilen kunde inte hittas på <code>%s</ code>. Det är troligt att detta "
+"orsakades av en behörighetsproblem."
+
+#: ../classes/export-import/classes/export_import.php:273
+msgid "Import failed. File does not contain Admin Column settings."
+msgstr ""
+"Importering misslyckades. Filen innehåller inte Admin Column inställningar."
+
+#: ../classes/export-import/classes/export_import.php:283
+#, php-format
+msgid "Screen %s does not exist."
+msgstr "Skärmen %s existerar inte."
+
+#: ../classes/filtering/filtering.php:56
+msgid "Filtering add-on"
+msgstr "Filtrering tillägg"
+
+#: ../classes/filtering/filtering.php:110
+msgid "Enable filtering?"
+msgstr "Aktivera filtrering?"
+
+#: ../classes/filtering/filtering.php:110
+msgid "This will make the column support filering."
+msgstr "Detta kommer att göra så kolumnen stödjer filtrering."
+
+#: ../classes/filtering/filtering.php:114 ../classes/sortable/sortable.php:128
+msgid "Yes"
+msgstr "Ja"
+
+#: ../classes/filtering/filtering.php:118 ../classes/sortable/sortable.php:132
+msgid "No"
+msgstr "Nej"
+
+#: ../classes/filtering/filtering.php:137
+msgid "filter"
+msgstr "filtrera"
+
+#: ../classes/filtering/classes/model.php:114
+msgid "All"
+msgstr "Alla"
+
+#: ../classes/filtering/classes/model.php:116
+msgid "Empty"
+msgstr "Tomt"
+
+#: ../classes/filtering/classes/model.php:117
+msgid "Not empty"
+msgstr "Inte tomt"
+
+#: ../classes/sortable/sortable.php:65
+msgid "Sortable add-on"
+msgstr "Sorterbart tillägg"
+
+#: ../classes/sortable/sortable.php:124
+msgid "Enable sorting?"
+msgstr "Aktivera sortering?"
+
+#: ../classes/sortable/sortable.php:124
+msgid "This will make the column support sorting."
+msgstr "Detta kommer att göra så kolumnen stödjer sortering."
+
+#: ../classes/sortable/sortable.php:151
+msgid "sort"
+msgstr "sortera"
+
+#: ../classes/sortable/classes/model.php:53
+msgid "Reset sorting"
+msgstr "Återställ sortering"

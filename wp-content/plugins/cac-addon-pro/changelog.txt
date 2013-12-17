@@ -1,0 +1,16 @@
+== Changelog ==
+
+= 1.0.5 =
+* [Fixed] Sorting User on Multsite ( props to fried_eggz )
+* [Fixed] Filter dropwdown bug with current selected item
+
+= 1.0.4 =
+* [Fixed] Bug with activating the pro add-on
+
+= 1.0.3 =
+* [Updated] translations
+* [Fixed] Sorts custom field post titles by Title (instead of ID)
+* [Added] Restore sorting from Admin column settings screen
+* [Fixed] Filtering will work for values as all sizes. limit of 30 char has been removed.
+* [Fixed] Check if sortable property isset by custom columns
+

@@ -1024,7 +1024,7 @@ span + .edit-link:before,
 .site-content .entry-meta,
 .page-content {
 	margin: 0 auto;
-	max-width: 474px;
+	max-width: 674px;
 }
 
 .page-content {
@@ -1537,7 +1537,7 @@ a.post-thumbnail:hover {
 .post-navigation,
 .image-navigation {
 	margin: 24px auto 48px;
-	max-width: 474px;
+	max-width: 674px;
 	padding: 0 10px;
 }
 
@@ -1640,7 +1640,7 @@ a.post-thumbnail:hover {
 .archive-header,
 .page-header {
 	margin: 24px auto;
-	max-width: 474px;
+	max-width: 674px;
 }
 
 .archive-title,
@@ -1699,7 +1699,7 @@ a.post-thumbnail:hover {
 
 .contributor-info {
 	margin: 0 auto;
-	max-width: 474px;
+	max-width: 674px;
 }
 
 .contributor-avatar {
@@ -1776,7 +1776,7 @@ a.post-thumbnail:hover {
 
 .comments-area {
 	margin: 48px auto;
-	max-width: 474px;
+	max-width: 674px;
 	padding: 0 10px;
 }
 
@@ -2922,7 +2922,7 @@ a.post-thumbnail:hover {
 .widecolumn > h2,
 .widecolumn > form {
 	margin: 0 auto 48px;
-	max-width: 474px;
+	max-width: 674px;
 	padding: 0 30px;
 }
 

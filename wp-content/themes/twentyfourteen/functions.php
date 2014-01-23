@@ -541,6 +541,34 @@ function change_default_title( $title ){
                         break;
         }
 }
-
 add_filter( 'enter_title_here', 'change_default_title' );
+
+
+function my_connection_types() {
+	p2p_register_connection_type( array(
+		'name' => 'systems_to_machines',
+		'from' => 'systems',
+		'to' => 'machines'
+	) );
+}
+add_action( 'p2p_init', 'my_connection_types' );
+
+
+function my_relationship_query( $args, $field, $post ) {
+global $wpdb;
+
+	$result = $wpdb->get_results("SELECT * FROM wp_posts WHERE post_type = (SELECT post_name FROM wp_posts WHERE post_type = 'customers' AND post_status = 'publish')");	
+print_r($result);
+	$args = array(
+		'numberposts' => -1,
+		'post_type' => 'customers',
+		'orderby' => 'title',
+		'order' => 'ASC',
+		'include' => $result,
+	);
+$post = get_posts($args);
+	return $args;
+}
+add_filter('acf/fields/post_object/query/key=field_52aae9f004d07', 'my_relationship_query', 10, 3);
+
 

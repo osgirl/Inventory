@@ -1,0 +1,54 @@
+/*MESSAGE STYLING*/
+.dbf_notice {
+	position: relative;
+	display: table-cell;
+	height: 30px;
+	width: 600px;
+	vertical-align: middle;
+	padding: 10px 10px 10px 60px;
+	
+	border-left: 5px solid;
+	border-right: 5px solid;
+	background: #f9f9f9;
+	
+	font-weight: bold;
+}
+.dbf_notice_alert {
+	border-color:  #ffc000;
+	color: #f2b600;
+}
+.dbf_notice_success {
+	border-color:  #90c823;
+	color: #90c823;
+}
+.dbf_notice_warning {
+	border-color:  #ff0000;
+	color: #ff0000;
+}
+
+.dbf_notice .dbf_icon {
+	position: absolute;
+	top: 0px;
+	left: -5px;
+	width: 50px;
+	height: 100%;
+}
+.dbf_notice_alert .dbf_icon {
+	background: #ffc000 url('../img/icon_alert.png') no-repeat center center;
+}
+.dbf_notice_success .dbf_icon {
+	background: #90c823 url('../img/icon_success.png') no-repeat center center;
+}
+.dbf_notice_warning .dbf_icon {
+	background: url('../img/icon_warning.png') no-repeat center center #ff0000;
+}
+
+.dbf_notice .dbf_message {
+}
+
+.dbf_notice .dbf_alert_dismiss {
+	float: right;
+}
+.dbf_notice .dbf_alert_dismiss a {
+	cursor: pointer;
+}

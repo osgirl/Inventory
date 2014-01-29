@@ -37,11 +37,8 @@ jQuery(document).ready(function($) {
 <?php
 $dbf_db = new wpdb(get_option('dbf-0-db-user'),get_option('dbf-0-db-password'),get_option('dbf-0-db-name'),get_option('dbf-0-db-host'));
 if($dbf_db){
-	$result = $dbf_db->get_results("SELECT * FROM `systems` 
-						LEFT JOIN customers ON systems.customer_id=customers.customer_id
-						LEFT JOIN machines ON systems.machine_id=machines.machine_id
-						LEFT JOIN manakins ON systems.manakin_id=manakins.manakin_id;");
-	echo "<table id='sortableTable' class='tablesorter-grey'>";;
+	$result = $dbf_db->get_results("SELECT * FROM (SELECT * FROM (SELECT * FROM systems as x1 ORDER BY systems_id desc) as x2 GROUP BY systems_pid ORDER BY systems_identifier) as x3 LEFT JOIN customers ON x3.customers_pid=customers.customers_id LEFT JOIN machines ON x3.machines_pid=machines.machines_id LEFT JOIN manakins ON x3.manakins_pid=manakins.manakins_id ORDER BY systems_id asc;");
+	echo "<table id='sortableTable' class='tablesorter-grey'>";
 	echo "<thead>";
 	echo "<tr>";
 	echo "<th>Heartworks Identifier</th>";
@@ -51,11 +48,11 @@ if($dbf_db){
 	echo "</tr>";
 	echo "<tbody>";
 	foreach($result as $object){
-		echo "<tr class='clickableRow' href='".get_permalink(434)."?csid=".$object->system_id."'>";
-		echo "<td>".$object->heartworks_ident."</td>";
-		echo "<td>".$object->license_name."</td>";
-		echo "<td>".$object->service_tag."</td>";
-		echo "<td>".$object->manakin_ident."</td>";
+		echo "<tr class='clickableRow' href='".get_permalink(434)."?id=".$object->systems_id."'>";
+		echo "<td>".$object->systems_identifier."</td>";
+		echo "<td>".$object->customers_identifier."</td>";
+		echo "<td>".$object->machines_identifier."</td>";
+		echo "<td>".$object->manakins_identifier."</td>";
 		echo "</tr>";
 	}
 	echo "</tbody>";

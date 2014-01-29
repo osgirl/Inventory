@@ -2,6 +2,9 @@
 
 include_once('../../../../wp-load.php');
 
+
+
+
 if(isset($_POST['dbf_submitted'])){
 
 //	$thetitle = $_POST['dbf_submitted'];
@@ -36,7 +39,7 @@ if(isset($_POST['dbf_submitted'])){
 	}
 	update_option('dbf-'.$_POST["dbf_submitted"].'-last-fields', $dbf_backup_array);
 	
-	if(count($dbf_fields_wrong) <= 0){
+	if(count($dbf_fields_wrong) <= 99){
 		if(get_option('dbf-0-main-function') == 'mail'){
 			$dbf_mail_content = nl2br(get_option('dbf-0-mail-content'));
 			preg_match_all('/%(.*)%/U', $dbf_mail_content , $matches);
@@ -105,6 +108,9 @@ if(isset($_POST['dbf_submitted'])){
 			$dbf_db = new wpdb(get_option('dbf-0-db-user'),get_option('dbf-0-db-password'),get_option('dbf-0-db-name'),get_option('dbf-0-db-host'));
 			if($dbf_db){
 				$dbf_insert = array();
+				foreach($_POST['arr'] as $column => $array) {
+					$dbf_insert[$column] = json_encode($array);
+				}
 				foreach($dbf_sec_fields as $field){
 					$dbf_column = $field['name'];
 					if(isset($_POST[$dbf_column])){

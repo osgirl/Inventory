@@ -15,12 +15,19 @@ jQuery(document).ready(function($) {
 </script>
 
 <?php
-$csid = mysql_real_escape_string($_GET[csid]);
+
+$features['default'] = array ( 'MMode', 'Doppler' );
+$software_versions['default'] = array ( 'TOE', 'TEE', 'Dual', 'Legacy' );
+
+
+$id = mysql_real_escape_string($_GET[id]);
 $dbf_db = new wpdb(get_option('dbf-0-db-user'),get_option('dbf-0-db-password'),get_option('dbf-0-db-name'),get_option('dbf-0-db-host'));
 if($dbf_db){
-        $customers = $dbf_db->get_results("SELECT customers.* FROM customers WHERE customers.customer_id NOT IN (SELECT systems.customer_id FROM systems);");
-        $machines = $dbf_db->get_results("SELECT machines.* FROM machines WHERE machines.machine_id NOT IN (SELECT systems.machine_id FROM systems);");
-        $manakins = $dbf_db->get_results("SELECT manakins.* FROM manakins WHERE manakins.manakin_id NOT IN (SELECT systems.manakin_id FROM systems);");
+//	$customers = $dbf_db->get_results("SELECT * FROM (SELECT * FROM (SELECT * FROM customers as x1 order by customers_id desc) as x2 group by customers_pid order by customers_identifier) as x3 WHERE x3.customers_pid NOT IN (SELECT systems.customers_pid FROM systems);");
+	$customers = $dbf_db->get_results("SELECT * FROM (SELECT * FROM customers as x1 order by customers_id desc) as x2 group by customers_pid order by customers_identifier;");
+	$machines = $dbf_db->get_results("SELECT * FROM (SELECT * FROM (SELECT * FROM machines as x1 order by machines_id desc) as x2 group by machines_pid order by machines_identifier) as x3 WHERE x3.machines_pid NOT IN (SELECT systems.machines_pid FROM systems);");
+	$manakins = $dbf_db->get_results("SELECT * FROM (SELECT * FROM (SELECT * FROM manakins as x1 order by manakins_id desc) as x2 group by manakins_pid order by manakins_identifier) as x3 WHERE x3.manakins_pid NOT IN (SELECT systems.manakins_pid FROM systems);");
+	$pathologies = $dbf_db->get_results("SELECT * FROM (SELECT * FROM pathologies as x1 ORDER BY pathologies_id desc) as x2 group by pathologies_pid order by pathologies_identifier;");
 }
 ?>
 
@@ -41,22 +48,22 @@ if($dbf_db){
                                                         <div class="dbf_text_wrapper dbf_wrapper">
                                                                 <div class="dbf_text_label dbf_label">Heartworks ID</div>
                                                                 <div class="dbf_text_field dbf_field">
-                                                                        <input type="text" data-required="true" name="heartworks_ident" value="" class="dbf_text_field dbf_class_build_number ">
+                                                                        <input type="text" data-required="true" placeholder="i.e. HW00001" name="systems_identifier" value="" class="dbf_text_field dbf_class_systems_identifier ">
                                                                 </div>
                                                                 <div class="dbf-cleaner"></div>
                                                         </div><br>
 
 							<div class="dbf_select_wrapper dbf_wrapper ">
 								<div class="dbf_select_before dbf_label">
-									<div class="dbf_select_description">Customer ID</div>
+									<div class="dbf_select_description">Customer</div>
 								</div>
 								<div class="dbf_select_main dbf_field">
-									<select data-required="true" name="customer_id">
+									<select data-required="true" name="customers_pid">
 										<option value="">- Select -</option>
 <?php
 foreach($customers as $customer){
 ?>
-										<option value="<?=$customer->customer_id;?>"><?=$customer->license_name;?></option>
+										<option value="<?=$customer->customers_pid;?>"><?=$customer->customers_identifier;?></option>
 <?php
 }
 ?>
@@ -67,15 +74,15 @@ foreach($customers as $customer){
 
 							<div class="dbf_select_wrapper dbf_wrapper ">
 								<div class="dbf_select_before dbf_label">
-									<div class="dbf_select_description">Allocated Machine ID</div>
+									<div class="dbf_select_description">Allocated Machine</div>
 								</div>
 								<div class="dbf_select_main dbf_field">
-									<select data-required="true" name="machine_id">
+									<select data-required="true" name="machines_pid">
 										<option value="">- Select -</option>
 <?php
 foreach($machines as $machine){
 ?>
-                                                                                <option value="<?=$machine->machine_id;?>"><?=$machine->service_tag;?></option>
+                                                                                <option value="<?=$machine->machines_pid;?>"><?=$machine->machines_identifier;?></option>
 <?php
 }
 ?>
@@ -86,15 +93,15 @@ foreach($machines as $machine){
 
 							<div class="dbf_select_wrapper dbf_wrapper ">
 								<div class="dbf_select_before dbf_label">
-									<div class="dbf_select_description">Allocated Manakin ID</div>
+									<div class="dbf_select_description">Allocated Manakin</div>
 								</div>
 								<div class="dbf_select_main dbf_field">
-									<select data-required="true" name="manakin_id">
+									<select data-required="true" name="manakins_pid">
 										<option value="">- Select -</option>
 <?php
 foreach($manakins as $manakin){
 ?>
-                                                                                <option value="<?=$manakin->manakin_id;?>"><?=$manakin->manakin_ident;?></option>
+                                                                                <option value="<?=$manakin->manakins_pid;?>"><?=$manakin->manakins_identifier;?></option>
 <?php
 }
 ?>
@@ -108,7 +115,7 @@ foreach($manakins as $manakin){
 									<div class="dbf_select_description">Heartworks Software</div>
 								</div>
 								<div class="dbf_select_main dbf_field">
-									<select data-required="true" name="software_version">
+									<select data-required="true" name="systems_software_version">
 										<option value="">- Select -</option>
 										<option value="TOE">TOE</option>
 										<option value="TEE">TEE</option>
@@ -123,31 +130,47 @@ foreach($manakins as $manakin){
 							<div class="dbf_text_wrapper dbf_wrapper">
 								<div class="dbf_text_label dbf_label">Software Build Number</div>
 								<div class="dbf_text_field dbf_field">
-									<input type="text" data-required="true" name="build_number" placeholder="" value="" class="dbf_text_field dbf_class_build_number ">
+									<input type="text" data-required="true" name="systems_build_number" value="" class="dbf_text_field dbf_class_build_number ">
 								</div>
 								<div class="dbf-cleaner"></div>
 							</div><br>
 
-							<div class="dbf_text_wrapper dbf_wrapper">
-								<div class="dbf_text_label dbf_label">Software Features</div>
-								<div class="dbf_text_field dbf_field">
-									<input type="text" data-required="true" name="software_features" placeholder="" value="" class="dbf_text_field dbf_class_software_features ">
-								</div>
-								<div class="dbf-cleaner"></div>
-							</div><br>
 
-							<div class="dbf_text_wrapper dbf_wrapper">
-								<div class="dbf_text_label dbf_label">Requested Pathology Packs</div>
-								<div class="dbf_text_field dbf_field">
-									<input type="text" data-required="true" name="req_pathology_packs" placeholder="" value="" class="dbf_text_field dbf_class_req_pathology_packs ">
+							<div class="dbf_select_wrapper dbf_wrapper ">
+								<div class="dbf_select_before dbf_label">
+									<div class="dbf_select_description">Software Features</div>
+								</div>
+								<div class="dbf_select_main dbf_field">
+									<select data-required="true" multiple="multiple" name="arr[systems_software_features][]">
+										<option value="MMode">MMode</option>
+										<option value="Doppler">Doppler</option>
+									</select>
 								</div>
 								<div class="dbf-cleaner"></div>
-							</div><br>
+							</div>
+
+							<div class="dbf_select_wrapper dbf_wrapper ">
+								<div class="dbf_select_before dbf_label">
+									<div class="dbf_select_description">Requested Pathology Packs</div>
+								</div>
+								<div class="dbf_select_main dbf_field">
+									<select data-required="true" multiple="multiple" name="arr[requested_pathology_packs][]">
+<?php
+foreach($pathologies as $pathology) {
+?>
+										<option value="<?=$pathology->pathologies_identifier;?>"><?=$pathology->pathologies_identifier;?></option>
+<?php
+}
+?>
+									</select>
+								</div>
+								<div class="dbf-cleaner"></div>
+							</div>
 
 							<div class="dbf_submit_wrapper dbf_wrapper">
 								<div class="dbf_submit_label"></div>
 								<div class="dbf_submit_button">
-									<input type="submit" value="Send!" class="dbf_submit_button">
+									<input type="submit" value="Add!" class="dbf_submit_button">
 								</div>
 							</div><br>
 

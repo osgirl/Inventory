@@ -71,6 +71,14 @@ if($dbf_db){
 								<div class="dbf-cleaner"></div>
 							</div>
 
+                                                        <div class="dbf_mail_wrapper dbf_wrapper">
+                                                                <div class="dbf_mail_label dbf_label">OS License Key</div>
+                                                                <div class="dbf_mail_field dbf_field">
+                                                                        <input type="text" data-required="true" name="machines_os_license" value="<?=$machines[0]->machines_os_license;?>" class="dbf_mail_field dbf_class_machines_os_license ">
+                                                                </div>
+                                                                <div class="dbf-cleaner"></div>
+                                                        </div><br>
+
 							<div class="dbf_mail_wrapper dbf_wrapper">
 								<div class="dbf_mail_label dbf_label">Login Username</div>
 								<div class="dbf_mail_field dbf_field">

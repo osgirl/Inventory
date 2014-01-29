@@ -37,7 +37,7 @@ jQuery(document).ready(function($) {
 <?php
 $dbf_db = new wpdb(get_option('dbf-0-db-user'),get_option('dbf-0-db-password'),get_option('dbf-0-db-name'),get_option('dbf-0-db-host'));
 if($dbf_db){
-	$result = $dbf_db->get_results("SELECT * FROM manakins;");
+	$result = $dbf_db->get_results("SELECT * FROM (SELECT * FROM manakins order by manakins_id desc) as test group by manakins_pid order by manakins_identifier;");
 	echo "<table id='sortableTable' class='tablesorter-grey'>";;
 	echo "<thead>";
 	echo "<tr>";
@@ -51,8 +51,8 @@ if($dbf_db){
 	echo "</tr>";
 	echo "<tbody>";
 	foreach($result as $object){
-		echo "<tr class='clickableRow' href='".get_permalink(409)."?csid=".$object->manakin_id."'>";
-		echo "<td>".$object->manakin_ident."</td>";
+		echo "<tr class='clickableRow' href='".get_permalink(409)."?id=".$object->manakins_id."'>";
+		echo "<td>".$object->manakins_identifier."</td>";
 		echo "<td>".$object->minDepth."</td>";
 		echo "<td>".$object->maxDepth."</td>";
 		echo "<td>".$object->minTwist."</td>";

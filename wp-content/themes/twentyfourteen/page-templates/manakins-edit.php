@@ -6,19 +6,22 @@ Template Name: Edit Manakin
 
 <?php get_header(); ?>
 
+<link rel="stylesheet" href="<?=get_template_directory_uri();?>/css/theme.grey.css">
+<script type="text/javascript" src="<?=get_template_directory_uri();?>/js/jquery.tablesorter.min.js"></script>
 <script type="text/javascript">
 jQuery(document).ready(function($) {
-      $(".clickableRow").click(function() {
-            window.document.location = $(this).attr("href");
-      });
+	$("#sortableTable").tablesorter();
+	$(".clickableRow").click(function() {
+		window.document.location = $(this).attr("href");
+	});
 });
 </script>
 
 <?php
-$csid = mysql_real_escape_string($_GET[csid]);
+$id = mysql_real_escape_string($_GET[id]);
 $dbf_db = new wpdb(get_option('dbf-0-db-user'),get_option('dbf-0-db-password'),get_option('dbf-0-db-name'),get_option('dbf-0-db-host'));
 if($dbf_db){
-        $manakin = $dbf_db->get_results("SELECT * FROM manakins WHERE manakin_id=$csid;");
+        $manakin = $dbf_db->get_results("SELECT * FROM manakins WHERE manakins_id=$id;");
 }
 ?>
 
@@ -35,12 +38,12 @@ if($dbf_db){
 						<form action="<?=plugins_url();?>/db-form/php/updater111.php" method="post" class="db_form " id="dbf_form_manakins" enctype="multipart/form-data" name="dbf_form_manakins">
 							<input type="hidden" value="manakins" name="dbf_submitted">
 							<input type="hidden" value="227" name="dbf_manakins_post_id"><br>
-							<input type="hidden" value="<?=$csid;?>" name="dbf_edit_id"><br>
+							<input type="hidden" value="<?=$manakin[0]->manakins_id;?>:<?=$manakin[0]->manakins_pid;?>" name="dbf_edit_id"><br>
 
 							<div class="dbf_text_wrapper dbf_wrapper">
 								<div class="dbf_text_label dbf_label">Manakin Identifier</div>
 								<div class="dbf_text_field dbf_field">
-									<input type="text" data-required="false" name="manakin_ident" value="<?=$manakin[0]->manakin_ident;?>" class="dbf_text_field dbf_class_manakin_ident ">
+									<input type="text" data-required="false" name="manakins_identifier" value="<?=$manakin[0]->manakins_identifier;?>" class="dbf_text_field dbf_class_manakins_identifier ">
 								</div>
 								<div class="dbf-cleaner"></div>
 							</div><br>
@@ -183,6 +186,39 @@ if($dbf_db){
 						</form>
 					</div><!--dbf_wrapper-->
 				</div><!-- .entry-content -->
+<br><br><br>
+                                <header class="entry-header"><h1 class="entry-title">Manakin History</h1></header>
+
+<?php
+$dbf_db = new wpdb(get_option('dbf-0-db-user'),get_option('dbf-0-db-password'),get_option('dbf-0-db-name'),get_option('dbf-0-db-host'));
+if($dbf_db){
+        $result = $dbf_db->get_results("SELECT * FROM manakins WHERE manakins_pid=".$manakin[0]->manakins_pid);
+        echo "<table id='sortableTable' class='tablesorter-grey'>";
+        echo "<thead>";
+        echo "<tr>";
+        echo "<th>Manakin Identifier</th>";
+        echo "<th>Last Modified</th>";
+        echo "<th>Modified By</th>";
+        echo "</tr>";
+        echo "<tbody>";
+        foreach($result as $object){
+                echo "<tr class='clickableRow' href='".get_permalink(409)."?id=".$object->manakins_id."'>";
+                echo "<td>".$object->manakins_identifier."</td>";
+                echo "<td>".$object->manakins_last_modified."</td>";
+                echo "<td>".$object->manakins_modified_by."</td>";
+                echo "</tr>";
+        }
+        echo "</tbody>";
+        echo "</table>";
+}
+
+?>
+
+
+
+
+
+
 			</article>
                 </div><!-- #content -->
         </div><!-- #primary -->

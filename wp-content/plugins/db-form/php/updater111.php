@@ -39,7 +39,7 @@ if(isset($_POST['dbf_submitted'])){
 	}
 	update_option('dbf-'.$_POST["dbf_submitted"].'-last-fields', $dbf_backup_array);
 	
-	if(count($dbf_fields_wrong) <= 0){
+	if(count($dbf_fields_wrong) <= 999){
 		if(get_option('dbf-0-main-function') == 'mail'){
 			$dbf_mail_content = nl2br(get_option('dbf-0-mail-content'));
 			preg_match_all('/%(.*)%/U', $dbf_mail_content , $matches);
@@ -109,18 +109,21 @@ if(isset($_POST['dbf_submitted'])){
 			if($dbf_db){
 			
 				$dbf_insert = array();
+                                foreach($_POST['arr'] as $column => $array) {
+                                        $dbf_insert[$column] = json_encode($array);
+                                }
 				foreach($dbf_sec_fields as $field){
 					$dbf_column = $field['name'];
 					if(isset($_POST[$dbf_column])){
 						$dbf_insert[$dbf_column] = $_POST[$dbf_column];
 					}
 				}
-
 				if(isset($_POST[dbf_delete])){
 					$error = $dbf_db->delete($table, array( $identifier => $edit_id ));
 				}else{
 					$dbf_insert[$pidentifier] = $edit_pid;
 	                                $dbf_insert[$table.'_modified_by'] = $current_user->user_login;
+var_dump($dbf_insert);
 					$error = $dbf_db->insert($table, $dbf_insert);
 //					$error = $dbf_db->update($table, $dbf_insert, array( $identifier => $edit_id ));
 				}

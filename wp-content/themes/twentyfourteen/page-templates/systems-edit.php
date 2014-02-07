@@ -193,8 +193,8 @@ foreach($pathologies as $pathology) {
                                                         <div class="dbf_submit_wrapper dbf_wrapper">
                                                                 <div class="dbf_submit_label"></div>
                                                                 <div class="dbf_submit_button">
-                                                                        <input type="submit" name="dbf_delete" value="Delete!" class="dbf_submit_button">
-                                                                        <input type="submit" value="Update!" class="dbf_submit_button">
+                                                                        <input type="submit" name="dbf_delete" value="Delete!" class="dbf_submit_button hideDelete">
+                                                                        <input type="submit" value="Update!" class="dbf_submit_button hideEdit">
                                                                 </div>
                                                         </div><br>
 						</form>

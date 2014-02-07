@@ -7,6 +7,7 @@
  * @since Twenty Fourteen 1.0
  */
 ?>
+
 <div id="secondary">
 	<?php
 		$description = get_bloginfo( 'description', 'display' );
@@ -25,5 +26,9 @@
 	<div id="primary-sidebar" class="primary-sidebar widget-area" role="complementary">
 		<?php dynamic_sidebar( 'sidebar-1' ); ?>
 	</div><!-- #primary-sidebar -->
-	<?php endif; ?>
+	<?php endif;
+
+	if ( is_user_logged_in() ) {
+		echo '<a href="'. wp_logout_url() .'">Logout '.custom_get_current_user_role().'</a>';
+	}?>
 </div><!-- #secondary -->

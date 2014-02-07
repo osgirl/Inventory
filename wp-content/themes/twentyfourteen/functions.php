@@ -571,4 +571,36 @@ $post = get_posts($args);
 }
 add_filter('acf/fields/post_object/query/key=field_52aae9f004d07', 'my_relationship_query', 10, 3);
 
+# Disable Admin bar for All except administrator
+function remove_admin_bar() {
+if (!current_user_can('administrator') && !is_admin()) {
+  show_admin_bar(false);
+}
+}
+add_action('after_setup_theme', 'remove_admin_bar');
+
+/**
+ * Redirect non-admin users to home page
+ *
+ * This function is attached to the 'admin_init' action hook.
+ */
+function redirect_non_admin_users() {
+	if ( ! current_user_can( 'manage_options' ) && '/wp-admin/admin-ajax.php' != $_SERVER['PHP_SELF'] ) {
+		wp_redirect( home_url() );
+		exit;
+	}
+}
+add_action( 'admin_init', 'redirect_non_admin_users' );
+
+if(!function_exists('custom_get_current_user_role')) {
+    function custom_get_current_user_role(){
+         if(is_user_logged_in()) {
+            global $current_user;
+            $user_role = $current_user->roles[0];
+            return $user_role;
+        }
+        return FALSE;
+    }
+}
+
 

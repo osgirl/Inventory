@@ -34,8 +34,22 @@ if($dbf_db){
 <div id="main-content" class="main-content">
         <div id="primary" class="content-area">
                 <div id="content" class="site-content" role="main">
+<?php
+if ( !current_user_can('add_iml') ) {
+	echo "<p class=\"restricted\">Sorry, but you do not have permission to view this content.</p>\n";
+?>
+                </div><!-- #content -->
+        </div><!-- #primary -->
 
+        <?php get_sidebar( 'content' ); ?>
+</div><!-- #main-content -->
 
+<?php
+get_sidebar();
+get_footer();
+exit;
+}
+?>
 			<article class="post-357 page type-page status-publish hentry" id="post-357">
 				<header class="entry-header"><h1 class="entry-title">Add System</h1></header>
 				<div class="entry-content">

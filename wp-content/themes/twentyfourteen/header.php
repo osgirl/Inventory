@@ -28,6 +28,15 @@
 	<script src="<?php echo get_template_directory_uri(); ?>/js/html5.js"></script>
 	<![endif]-->
 	<?php wp_head(); ?>
+	<?php if ( !current_user_can('add_iml') ) { ?>
+	<style>.hideAdd {display: none;}</style>
+	<?php } ?>
+	<?php if ( !current_user_can('edit_iml') ) { ?>
+	<style>.hideEdit {display: none;}</style>
+	<?php } ?>
+	<?php if ( !current_user_can('delete_iml') ) { ?>
+	<style>.hideDelete {display: none;}</style>
+	<?php } ?>
 </head>
 
 <body <?php body_class(); ?>>

@@ -1,6 +1,9 @@
 <?php
 
 include_once('../../../../wp-load.php');
+if ( !current_user_can('edit_iml') ) {
+        exit;
+}
 
 if(isset($_POST['dbf_submitted'])){
 
@@ -109,6 +112,10 @@ if(isset($_POST['dbf_submitted'])){
 			if($dbf_db){
 			
 				$dbf_insert = array();
+				if($_POST['dbf_submitted']=='keys') {
+					$xml = simplexml_load_string(stripslashes($_POST['keys_xml']));
+					$dbf_insert['keys_identifier'] = $xml->LicencedTo;
+				}
                                 foreach($_POST['arr'] as $column => $array) {
                                         $dbf_insert[$column] = json_encode($array);
                                 }
@@ -119,7 +126,8 @@ if(isset($_POST['dbf_submitted'])){
 					}
 				}
 				if(isset($_POST[dbf_delete])){
-					$error = $dbf_db->delete($table, array( $identifier => $edit_id ));
+					$error = $dbf_db->delete("`$table`", array( $identifier => $edit_id ));
+					echo "table = $table<br>\nidentifier = $identifier<br>\nedit_id = $edit_id<br>\nerror = $error<br>\n";
 				}else{
 					$dbf_insert[$pidentifier] = $edit_pid;
 	                                $dbf_insert[$table.'_modified_by'] = $current_user->user_login;
@@ -174,6 +182,7 @@ var_dump($dbf_insert);
 				}else{
 					$returns = array(	'message'	=>	'warning-dbins'	);
 					$dbf_prev_url = get_permalink($_POST['dbf_'.$_POST['dbf_submitted'].'_post_id']);
+echo "ALERT!!!!$error!!!!!!!";
 					exit;
 				}
 			}else{

@@ -1,9 +1,9 @@
 <?php
 
 include_once('../../../../wp-load.php');
-
-
-
+if ( !current_user_can('add_iml') ) {
+	exit;
+}
 
 if(isset($_POST['dbf_submitted'])){
 
@@ -108,6 +108,10 @@ if(isset($_POST['dbf_submitted'])){
 			$dbf_db = new wpdb(get_option('dbf-0-db-user'),get_option('dbf-0-db-password'),get_option('dbf-0-db-name'),get_option('dbf-0-db-host'));
 			if($dbf_db){
 				$dbf_insert = array();
+				if($_POST['dbf_submitted']=='keys') {
+					$xml = simplexml_load_string(stripslashes($_POST['keys_xml']));
+					$dbf_insert['keys_identifier'] = $xml->LicencedTo;
+				}
 				foreach($_POST['arr'] as $column => $array) {
 					$dbf_insert[$column] = json_encode($array);
 				}

@@ -21,7 +21,7 @@ jQuery(document).ready(function($) {
 
 
 $features['default'] = array ( 'MMode', 'Doppler' );
-$software_versions['default'] = array ( 'TOE', 'TEE', 'Dual', 'Legacy' );
+$software_versions['default'] = array ( '-- none --', 'TOE', 'TEE', 'Dual', 'Legacy' );
 
 $id = mysql_real_escape_string($_GET[id]);
 $dbf_db = new wpdb(get_option('dbf-0-db-user'),get_option('dbf-0-db-password'),get_option('dbf-0-db-name'),get_option('dbf-0-db-host'));
@@ -31,10 +31,12 @@ if($dbf_db){
                                                 LEFT JOIN machines ON systems.machines_pid=machines.machines_pid
                                                 LEFT JOIN manakins ON systems.manakins_pid=manakins.manakins_pid
 						WHERE systems_id=$id;");
-//	$customers = $dbf_db->get_results("SELECT * FROM (SELECT * FROM (SELECT * FROM customers as x1 order by customers_id desc) as x2 group by customers_pid order by customers_identifier) as x3 WHERE x3.customers_pid NOT IN (SELECT systems.customers_pid FROM systems);");
-	$customers = $dbf_db->get_results("SELECT * FROM (SELECT * FROM customers as x1 order by customers_id desc) as x2 group by customers_pid order by customers_identifier;");
-	$machines = $dbf_db->get_results("SELECT * FROM (SELECT * FROM (SELECT * FROM machines as x1 order by machines_id desc) as x2 group by machines_pid order by machines_identifier) as x3 WHERE x3.machines_pid NOT IN (SELECT systems.machines_pid FROM systems);");
-	$manakins = $dbf_db->get_results("SELECT * FROM (SELECT * FROM (SELECT * FROM manakins as x1 order by manakins_id desc) as x2 group by manakins_pid order by manakins_identifier) as x3 WHERE x3.manakins_pid NOT IN (SELECT systems.manakins_pid FROM systems);");
+#	$customers = $dbf_db->get_results("SELECT * FROM (SELECT * FROM customers as x1 order by customers_id desc) as x2 group by customers_pid order by customers_identifier;");
+	$customers = $dbf_db->get_results("SELECT * FROM v_latest_customers ORDER BY customers_identifier;");
+#	$machines = $dbf_db->get_results("SELECT * FROM (SELECT * FROM (SELECT * FROM machines as x1 order by machines_id desc) as x2 group by machines_pid order by machines_identifier) as x3 WHERE x3.machines_pid NOT IN (SELECT machines_pid FROM (SELECT * FROM systems ORDER BY systems_id DESC) as x GROUP BY systems_pid);");
+	$machines = $dbf_db->get_results("SELECT * FROM v_latest_machines WHERE machines_pid NOT IN (SELECT machines_pid FROM v_latest_systems);");
+#	$manakins = $dbf_db->get_results("SELECT * FROM (SELECT * FROM (SELECT * FROM manakins as x1 order by manakins_id desc) as x2 group by manakins_pid order by manakins_identifier) as x3 WHERE x3.manakins_pid NOT IN (SELECT manakins_pid FROM (SELECT * FROM systems ORDER BY systems_id DESC) as x GROUP BY systems_pid);");
+	$manakins = $dbf_db->get_results("SELECT * FROM v_latest_manakins WHERE manakins_pid NOT IN (SELECT manakins_pid FROM v_latest_systems) ORDER BY manakins_identifier ASC;");
         $pathologies = $dbf_db->get_results("SELECT * FROM (SELECT * FROM pathologies as x1 ORDER BY pathologies_id desc) as x2 group by pathologies_pid order by pathologies_identifier;");
 }
 ?>
@@ -68,10 +70,11 @@ if($dbf_db){
 								</div>
 								<div class="dbf_select_main dbf_field">
 									<select data-required="true" name="customers_pid">
+                                                                                <option value="0">-- Unassigned --</option>
 <?php
 foreach($customers as $customer) {
 ?>
-                                                                                <option <?=(($customer->customers_pid == $result[0]->customers_pid) ? "selected=\"selected\"" : "");?>value="<?=$customer->customers_pid;?>"><?=$customer->customers_identifier;?></option>
+                                                                                <option <?=(($customer->customers_pid == $result[0]->customers_pid) ? "selected=\"selected\" " : "");?>value="<?=$customer->customers_pid;?>"><?=$customer->customers_identifier;?></option>
 <?php
 }
 ?>
@@ -86,8 +89,13 @@ foreach($customers as $customer) {
 								</div>
 								<div class="dbf_select_main dbf_field">
 									<select data-required="true" name="machines_pid">
-										<option value="<?=$result[0]->machines_pid;?>"><?=$result[0]->machines_identifier;?></option>
+                                                                                 <option value="0">-- Unassigned --</option>
 <?php
+if(!$result[0]->machines_pid=='') {
+?>
+										<option selected="selected" value="<?=$result[0]->machines_pid;?>"><?=$result[0]->machines_identifier;?></option>
+<?php
+}
 foreach($machines as $machine){
 ?>
                                                                                 <option value="<?=$machine->machines_pid;?>"><?=$machine->machines_identifier;?></option>
@@ -105,8 +113,13 @@ foreach($machines as $machine){
 								</div>
 								<div class="dbf_select_main dbf_field">
 									<select data-required="true" name="manakins_pid">
-										<option value="<?=$result[0]->manakins_pid;?>"><?=$result[0]->manakins_identifier;?></option>
+                                                                                 <option value="0">-- Unassigned --</option>
 <?php
+if(!$result[0]->manakins_pid=='') {
+?>
+										<option selected="selected" value="<?=$result[0]->manakins_pid;?>"><?=$result[0]->manakins_identifier;?></option>
+<?php
+}
 foreach($manakins as $manakin){
 ?>
                                                                                 <option value="<?=$manakin->manakins_pid;?>"><?=$manakin->manakins_identifier;?></option>
@@ -127,7 +140,7 @@ foreach($manakins as $manakin){
 <?php
 foreach($software_versions['default'] as $version) {
 ?>
-										<option <?=(($version == $result[0]->systems_software_version) ? "selected=\"selected\"" : "");?>value="<?=$version;?>"><?=$version;?></option>
+										<option <?=(($version == $result[0]->systems_software_version) ? "selected=\"selected\" " : "");?>value="<?=$version;?>"><?=$version;?></option>
 <?php
 }
 ?>

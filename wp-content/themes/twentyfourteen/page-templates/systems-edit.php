@@ -37,7 +37,7 @@ if($dbf_db){
 	$machines = $dbf_db->get_results("SELECT * FROM v_latest_machines WHERE machines_pid NOT IN (SELECT machines_pid FROM v_latest_systems);");
 #	$manakins = $dbf_db->get_results("SELECT * FROM (SELECT * FROM (SELECT * FROM manakins as x1 order by manakins_id desc) as x2 group by manakins_pid order by manakins_identifier) as x3 WHERE x3.manakins_pid NOT IN (SELECT manakins_pid FROM (SELECT * FROM systems ORDER BY systems_id DESC) as x GROUP BY systems_pid);");
 	$manakins = $dbf_db->get_results("SELECT * FROM v_latest_manakins WHERE manakins_pid NOT IN (SELECT manakins_pid FROM v_latest_systems) ORDER BY manakins_identifier ASC;");
-        $pathologies = $dbf_db->get_results("SELECT * FROM (SELECT * FROM pathologies as x1 ORDER BY pathologies_id desc) as x2 group by pathologies_pid order by pathologies_identifier;");
+        $pathologies = $dbf_db->get_results("SELECT * FROM v_latest_pathologies ORDER BY pathologies_identifier ASC;");
 }
 ?>
 

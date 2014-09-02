@@ -98,7 +98,7 @@ if($dbf_db){
 							<div class="dbf_text_wrapper dbf_wrapper">
 								<div class="dbf_text_label dbf_label">Generated Fingerprint</div>
 								<div class="dbf_text_field dbf_field">
-									<input type="file" name="machines_fingerprint" class="dbf_text_field dbf_class_machines_fingerprint ">
+									<input type="text" disabled="disabled" name="machines_fingerprint" value="<?=(($machines[0]->machines_fingerprint != NULL) ? "attached" : "none");?>"class="dbf_text_field dbf_class_machines_fingerprint ">
 								</div>
 								<div class="dbf-cleaner"></div>
 							</div>

@@ -17,7 +17,7 @@ jQuery(document).ready(function($) {
 <?php
 
 $features['default'] = array ( 'MMode', 'Doppler' );
-$software_versions['default'] = array ( 'TOE', 'TEE', 'Dual', 'Legacy' );
+$software_versions['default'] = array ( 'TOE', 'TTE', 'Dual', 'Legacy', 'Mobile' );
 
 
 $id = mysql_real_escape_string($_GET[id]);
@@ -130,10 +130,13 @@ foreach($manakins as $manakin){
 								<div class="dbf_select_main dbf_field">
 									<select data-required="true" name="systems_software_version">
 										<option value="">-- none --</option>
-										<option value="TOE">TOE</option>
-										<option value="TEE">TEE</option>
-										<option value="Dual">Dual</option>
-										<option value="Legacy">Legacy</option>
+<?php
+foreach($software_versions['default'] as $version) {
+?>
+                                                                                <option <?=(($version == $result[0]->systems_software_version) ? "selected=\"selected\" " : "");?>value="<?=$version;?>"><?=$version;?></option>
+<?php
+}
+?>
 									</select>
 								</div>
 								<div class="dbf-cleaner"></div>

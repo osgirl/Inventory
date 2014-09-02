@@ -37,7 +37,7 @@ jQuery(document).ready(function($) {
 <?php
 $dbf_db = new wpdb(get_option('dbf-0-db-user'),get_option('dbf-0-db-password'),get_option('dbf-0-db-name'),get_option('dbf-0-db-host'));
 if($dbf_db){
-	$result = $dbf_db->get_results("SELECT * FROM (SELECT * FROM (SELECT * FROM systems as x1 ORDER BY systems_id desc) as x2 GROUP BY systems_pid ORDER BY systems_identifier) as x3 LEFT JOIN customers ON x3.customers_pid=customers.customers_id LEFT JOIN machines ON x3.machines_pid=machines.machines_id LEFT JOIN manakins ON x3.manakins_pid=manakins.manakins_id ORDER BY systems_id asc;");
+	$result = $dbf_db->get_results("SELECT * FROM (SELECT * FROM (SELECT * FROM systems as x1 ORDER BY systems_id desc) as x2 GROUP BY systems_pid ORDER BY systems_identifier) as x3 LEFT JOIN customers ON x3.customers_pid=customers.customers_id LEFT JOIN machines ON x3.machines_pid=machines.machines_id LEFT JOIN manakins ON x3.manakins_pid=manakins.manakins_id ORDER BY systems_identifier asc;");
 	echo "<table id='sortableTable' class='tablesorter-grey'>";
 	echo "<thead>";
 	echo "<tr>";

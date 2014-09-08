@@ -31,13 +31,11 @@ if($dbf_db){
                                                 LEFT JOIN machines ON systems.machines_pid=machines.machines_pid
                                                 LEFT JOIN manakins ON systems.manakins_pid=manakins.manakins_pid
 						WHERE systems_id=$id;");
-#	$customers = $dbf_db->get_results("SELECT * FROM (SELECT * FROM customers as x1 order by customers_id desc) as x2 group by customers_pid order by customers_identifier;");
 	$customers = $dbf_db->get_results("SELECT * FROM v_latest_customers ORDER BY customers_identifier;");
-#	$machines = $dbf_db->get_results("SELECT * FROM (SELECT * FROM (SELECT * FROM machines as x1 order by machines_id desc) as x2 group by machines_pid order by machines_identifier) as x3 WHERE x3.machines_pid NOT IN (SELECT machines_pid FROM (SELECT * FROM systems ORDER BY systems_id DESC) as x GROUP BY systems_pid);");
 	$machines = $dbf_db->get_results("SELECT * FROM v_latest_machines WHERE machines_pid NOT IN (SELECT machines_pid FROM v_latest_systems);");
-#	$manakins = $dbf_db->get_results("SELECT * FROM (SELECT * FROM (SELECT * FROM manakins as x1 order by manakins_id desc) as x2 group by manakins_pid order by manakins_identifier) as x3 WHERE x3.manakins_pid NOT IN (SELECT manakins_pid FROM (SELECT * FROM systems ORDER BY systems_id DESC) as x GROUP BY systems_pid);");
 	$manakins = $dbf_db->get_results("SELECT * FROM v_latest_manakins WHERE manakins_pid NOT IN (SELECT manakins_pid FROM v_latest_systems) ORDER BY manakins_identifier ASC;");
         $pathologies = $dbf_db->get_results("SELECT * FROM v_latest_pathologies ORDER BY pathologies_pack_number ASC;");
+	$dropdown = $dbf_db->get_results("SELECT dropdown_text FROM dropdown_info WHERE dropdown_identifier = 'systems_build_number' ORDER BY dropdown_index asc;");
 }
 ?>
 
@@ -149,15 +147,24 @@ foreach($software_versions['default'] as $version) {
 								<div class="dbf-cleaner"></div>
 							</div>
 
-
-							<div class="dbf_text_wrapper dbf_wrapper">
-								<div class="dbf_text_label dbf_label">Software Build Number</div>
-								<div class="dbf_text_field dbf_field">
-									<input type="text" data-required="true" name="systems_build_number" value="<?=$result[0]->systems_build_number;?>" class="dbf_text_field dbf_class_systems_build_number ">
-								</div>
-								<div class="dbf-cleaner"></div>
-							</div><br>
-
+                                                        <div class="dbf_select_wrapper dbf_wrapper ">
+                                                                <div class="dbf_select_before dbf_label">
+                                                                        <div class="dbf_select_description">Software Build Number</div>
+                                                                </div>
+                                                                <div class="dbf_select_main dbf_field">
+                                                                        <select data-required="true" name="systems_build_number">
+                                                                                <option value="">-- Unassigned --</option>
+<?php
+foreach($dropdown as $drop) {
+?>
+                                                                                <option <?=(($drop->dropdown_text == $result[0]->systems_build_number) ? "selected=\"selected\" " : "");?>value="<?=$drop->dropdown_text;?>"><?=$drop->dropdown_text;?></option>
+<?php
+}
+?>
+                                                                        </select>
+                                                                </div>
+                                                                <div class="dbf-cleaner"></div>
+                                                        </div>
 
                                                         <div class="dbf_select_wrapper dbf_wrapper ">
                                                                 <div class="dbf_select_before dbf_label">

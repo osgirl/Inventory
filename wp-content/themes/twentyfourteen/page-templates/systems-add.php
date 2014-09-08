@@ -27,6 +27,7 @@ if($dbf_db){
         $machines = $dbf_db->get_results("SELECT * FROM v_latest_machines WHERE machines_pid NOT IN (SELECT machines_pid FROM v_latest_systems);");
         $manakins = $dbf_db->get_results("SELECT * FROM v_latest_manakins WHERE manakins_pid NOT IN (SELECT manakins_pid FROM v_latest_systems) ORDER BY manakins_identifier ASC;");
         $pathologies = $dbf_db->get_results("SELECT * FROM v_latest_pathologies ORDER BY pathologies_identifier ASC;");
+        $dropdown = $dbf_db->get_results("SELECT dropdown_text FROM dropdown_info WHERE dropdown_identifier = 'systems_build_number' ORDER BY dropdown_index asc;");
 }
 ?>
 
@@ -142,15 +143,24 @@ foreach($software_versions['default'] as $version) {
 								<div class="dbf-cleaner"></div>
 							</div>
 
-
-							<div class="dbf_text_wrapper dbf_wrapper">
-								<div class="dbf_text_label dbf_label">Software Build Number</div>
-								<div class="dbf_text_field dbf_field">
-									<input type="text" data-required="true" name="systems_build_number" value="" class="dbf_text_field dbf_class_build_number ">
-								</div>
-								<div class="dbf-cleaner"></div>
-							</div><br>
-
+                                                        <div class="dbf_select_wrapper dbf_wrapper ">
+                                                                <div class="dbf_select_before dbf_label">
+                                                                        <div class="dbf_select_description">Software Build Number</div>
+                                                                </div>
+                                                                <div class="dbf_select_main dbf_field">
+                                                                        <select data-required="true" name="systems_build_number">
+                                                                                <option value="">-- Unassigned --</option>
+<?php
+foreach($dropdown as $drop) {
+?>
+                                                                                <option value="<?=$drop->dropdown_text;?>"><?=$drop->dropdown_text;?></option>
+<?php
+}
+?>
+                                                                        </select>
+                                                                </div>
+                                                                <div class="dbf-cleaner"></div>
+                                                        </div>
 
 							<div class="dbf_select_wrapper dbf_wrapper ">
 								<div class="dbf_select_before dbf_label">

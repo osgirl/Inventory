@@ -1014,7 +1014,7 @@ span + .edit-link:before,
 }
 
 .hentry {
-	margin: 0 auto 48px;
+	margin: 0 auto 20px;
 	max-width: 672px;
 }
 
@@ -1024,7 +1024,7 @@ span + .edit-link:before,
 .site-content .entry-meta,
 .page-content {
 	margin: 0 auto;
-	max-width: 674px;
+//	max-width: 674px;
 }
 
 .page-content {
@@ -2915,7 +2915,7 @@ a.post-thumbnail:hover {
  */
 
 .site-main .widecolumn {
-	padding-top: 72px;
+	padding-top: 20px;
 	width: auto;
 }
 .site-main .mu_register,
@@ -3512,7 +3512,7 @@ a.post-thumbnail:hover {
 @media screen and (min-width: 846px) {
 	.content-area,
 	.content-sidebar {
-		padding-top: 72px;
+		padding-top: 20px;
 	}
 
 	.site-content .has-post-thumbnail .entry-header {
@@ -3545,7 +3545,7 @@ a.post-thumbnail:hover {
 	}
 
 	.full-width.singular .site-content .hentry.has-post-thumbnail {
-		margin-top: -72px;
+		margin-top: -20px;
 	}
 
 	.featured-content {
